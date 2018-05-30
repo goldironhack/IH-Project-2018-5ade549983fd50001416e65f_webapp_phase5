@@ -1,15 +1,141 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <h1>Hello World!</h1>
-        <button id="btn">Click me</button>
-    </div>
-    <script src="index.js"></script>
-</body>
+<!doctype html>
+<html>
+	<head>
+		<title>Simple Map</title>
+    	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="style.css">
+		<link href="https://fonts.googleapis.com/css?family=Patrick+Hand+SC" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<title>index</title>
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+				<nav class="navigator">
+					<ul class="nav justify-content-center">
+  					<li class="nav-item">
+   					 <a class="nav-link active" href="#">Home</a>
+ 					 </li>
+					  <li class="nav-item">
+						<a class="nav-link" href="#">Graphics</a>
+					  </li>
+					  <li class="nav-item">
+						<a class="nav-link" href="#">NYU</a>
+					  </li>
+					  <li class="nav-item">
+						<a class="nav-link " href="#">Link</a>
+					  </li>
+					</ul>
+				</nav>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3">
+					<button class="btn btn-lg btn-block btn-primary"  >Update Map</button>
+					<button class="btn btn-lg btn-block btn-dark" id="top10" onClick="top">Top 10</button>
+					<button class="btn btn-lg btn-block btn-dark">Top 3</button>
+					<button class="btn btn-lg btn-block btn-success">Generate Graphic</button>
+					<button class="btn btn-lg btn-block btn-success" id="table">Generate Table</button>
+				</div>
+				<div class="col-md-6">
+					<div id="map"></div>
+				</div>
+				<div class="col-md-3">
+					<form action="" id="inf" name="formul">
+						<div class="custom-checkbox">
+							<h6>Select the parameters of your interest: </h6>
+							<label>
+								<input type="checkbox" name="" id=""> Hospitals
+							</label>
+							<label>
+								<input type="checkbox" name="" id=""> Malls
+							</label>
+						</div>
+						<div class="custom-checkbox">
+							<label>
+								<input type="checkbox" name="" id=""> Green Spaces
+							</label>
+							<label>
+								<input type="checkbox" name="" id=""> Gyms
+							</label>
+						</div>
+						<div class="custom-checkbox">
+							<label>
+								<input type="checkbox" name="" id=""> Schools
+							</label>
+							<label>
+								<input type="checkbox" name="" id=""> Pubs
+							</label>
+						</div>
+						<div class="form-group">
+							<label for="option control"><h6>Select the parameter that you would like to see the TOP 10: </h6>  </label>
+							<select class="form-control" name="stop10" id="sel1">
+								<option value="1">Distance</option>
+								<option value="2">Safety</option>
+								<option value="3">Affordability </option>
+							</select>
+						</div>
+
+						<div class="form-group">
+							<label for="option control"> <h6>Choose the type of Graphic of your preference: </h6></label>
+							<select class="form-control" name="" id="">
+								<option value="">Grafico de Barras</option>
+								<option value="">Grafico de Velas</option>
+								<option value="">Grafico de Torta</option>
+								<option value="">Grafico de Linea</option>
+								<option value="">Listas</option>
+							</select>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<table class="table">
+						<thead>
+          		<tr>
+            	<th>Rank 10</th>
+          		</tr>
+          		<tr>
+            	<th>District</th>
+            	<th>Item</th>
+          		</tr>
+						</thead>
+						<tbody id="mainTableBody10">
+
+						</tbody>
+      		</table>
+				</div>
+				<div class="col-md-6">
+					<table class="table">
+						<thead>
+          		<tr>
+            	<th>Rank 3 General</th>
+          		</tr>
+          		<tr>
+            	<th>District</th>
+            	<th>Item</th>
+          		</tr>
+						</thead>
+						<tbody id="mainTableBody3">
+
+						</tbody>
+      		</table>
+				</div>
+			</div>
+			</div>
+
+
+		<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+		<script src="https://d3js.org/d3.v4.min.js"></script>
+		<script type="text/javascript" src="index.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuQ4CBa9sZAlJaheXTM3eb8yAHlecxIEc&callback=initMap"
+   		async defer></script>
+	</body>
 </html>
